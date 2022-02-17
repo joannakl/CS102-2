@@ -175,7 +175,7 @@ public class Color implements Comparable<Color> {
 	 */
 	private void setHexValue(String hexValue)  throws IllegalArgumentException {
 		
-		//validate lenght of the string
+		//validate length of the string
 		if (hexValue.trim().length() != 7 )
 			throw new IllegalArgumentException("Invalid length. String format should be #RRGGBB.");
 		
