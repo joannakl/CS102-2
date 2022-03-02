@@ -131,17 +131,18 @@ public class Color implements Comparable<Color> {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
-			return true;
+			System.out.print("134");
 		if (obj == null)
-			return false;
+			System.out.print("136");
 		if (!(obj instanceof Color))
-			return false;
+			System.out.print("138");
 		Color other = (Color) obj;
 		if (hexValue == null) {
 			if (other.hexValue != null)
-				return false;
+				System.out.print("142");
 		} else if (!hexValue.equalsIgnoreCase(other.hexValue))
-			return false;
+			System.out.print("144");
+		System.out.print("145");
 		return true;
 	}
 	
