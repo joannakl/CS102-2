@@ -9,9 +9,11 @@ public class Origin implements Comparable<Origin>{
 		}
 		this.originName = originName; this.count = count;
 		
-	} public String getOriginName() {
+	} 
+	public String getOriginName() {
 		return originName;
-	} public int getCount() {
+	} 
+	public int getCount() {
 		return count;
 	}
 	@Override
