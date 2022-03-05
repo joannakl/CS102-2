@@ -76,7 +76,7 @@ public class CSV {
 		in.useDelimiter("\\Z");   //
 		String csvFile = in.next();
 
-		lines = new ArrayList<ArrayList<String>> ();
+		lines = new ArrayList<ArrayList<String>>();
 
 		parseFile( csvFile );
 
