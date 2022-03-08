@@ -114,7 +114,7 @@ public class Region {
   		REGION: foreign born population
   		PLACE1  NUM1
   		PLACE2  NUM2
-		(in which the PLACE1, PLACE2, are all places of origin with a non-zero count and NUM1,NUM2, … are the corresponding counts)
+		(in which the PLACE1, PLACE2, are all places of origin with a non-zero count and NUM1,NUM2, are the corresponding counts)
 	 
 	 *@return a string in the above format
 	 */
