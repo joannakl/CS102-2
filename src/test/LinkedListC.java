@@ -1,4 +1,4 @@
-package test;
+package test;@
 /*
 A linked list class. Elements are of type int. 
 */
