@@ -11,7 +11,6 @@ public interface PossibleLocations {
     /**
     * Add a Location object to this collection.
     * @param s object to be added
-    * @throws IllegalArgumentException if the given location is a wall
     * @throws NullPointerException if the given location is null
     */
     void add ( Location s );
