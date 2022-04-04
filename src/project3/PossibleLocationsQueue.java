@@ -6,13 +6,20 @@ public class PossibleLocationsQueue implements PossibleLocations {
 	private static Location[] locations;
 	
 	/**
-	 * 
+	 * Constructor
 	 * @param c
 	 */
-	PossibleLocationsQueue(int totalCapacity) {
+	public PossibleLocationsQueue(int totalCapacity) {
 		frontIndex = 0;
 		backIndex = 0;
 		capacity = totalCapacity;
+		locations = new Location[capacity];
+	}
+	
+	public PossibleLocationsQueue() {
+		frontIndex = 0;
+		backIndex = 0;
+		capacity = 100;
 		locations = new Location[capacity];
 	}
 
@@ -68,6 +75,27 @@ public class PossibleLocationsQueue implements PossibleLocations {
      */
 	public boolean isEmpty() {
 		return(frontIndex == backIndex ? true: false);
+	}
+	
+    /**
+     * Returns the string representation of this collection.
+     * The string representation consists of a list of the collection's
+     * elements in the order they would be removed and returned by future
+     * calls to remove(). The elements should be enclosed in square brackets (`"[]"`).
+     * Adjacent elements are separated by the characters `", "` (comma and space).
+     * @return the string representation of this collection
+     */
+	public String toString() {
+		StringBuilder string = new StringBuilder();
+        if (this.isEmpty()) {
+            return("Empty Queue");
+        }
+ 
+        // traverse front to rear and print elements
+        for (int i = frontIndex; i < backIndex; i++) {
+            string.append(i + ". "+ locations[i] + "\n");
+        }
+        return string.toString();
 	}
 
 }

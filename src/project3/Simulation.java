@@ -219,12 +219,12 @@ public class Simulation {
                 break;
             }
 
-            //Otherwise, it is a reachable non-finish location that we havenâ€™t seen
+            //Otherwise, it is a reachable non-finish location that we haven’t seen
             //yet. So, explore it as follows:
             //   - compute all the adjacent locations that are inside the maze and
-            //     arenâ€™t walls, and
+            //     aren’t walls, and
             //   - add them to the list for later exploration.
-            //Also, record the fact that youâ€™ve explored this location so you wonâ€™t
+            //Also, record the fact that you’ve explored this location so you won’t
             //ever have to explore it again.
             neighbors = maze.getNeighbors(current);
             for (int i = 0; i < neighbors.size(); i++) {

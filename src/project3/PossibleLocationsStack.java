@@ -1,6 +1,5 @@
 package project3;
 
-import java.util.LinkedList;
 
 class PossibleLocationsStack implements PossibleLocations {
 	
@@ -13,35 +12,39 @@ class PossibleLocationsStack implements PossibleLocations {
 	public PossibleLocationsStack() {
 		this.top = null;
 	}
-
-	public void add(Location s) {
-
+	
+    /**
+    * Add a Location object to this collection.
+    * @param s object to be added
+    * @throws NullPointerException if the given location is null
+    */
+	
+	public void add(Location s) throws NullPointerException { 
+		
+		if(s == null) {
+			throw new NullPointerException("Given location is null");
+		}
+		
 		Node temp = new Node();
 
 		temp.data = s;
 
 		temp.link = top;
 
-
 		top = temp;
 	}
+
 
 	public boolean isEmpty() {
 		return top == null;
 	}
 
-	public Location peek() {
-
-		if (!isEmpty()) {
-			return top.data;
-		}
-		else {
-			System.out.println("Stack is empty");
-			System.exit(0);
-			return null;
-		}
-	}
-
+    /**
+     * Remove the next object from this collection. The specific
+     * item returned is determined by the underlying structure
+     * by which this collection is represented.
+     * @return the next object, or null if set is empty
+     */
 	public Location remove() { 
 		Node temp = new Node();
 	
@@ -56,21 +59,28 @@ class PossibleLocationsStack implements PossibleLocations {
 		return temp.data;
 	}
 
-	public void display() {
+    /**
+     * Returns the string representation of this collection.
+     * The string representation consists of a list of the collection's
+     * elements in the order they would be removed and returned by future
+     * calls to remove(). The elements should be enclosed in square brackets (`"[]"`).
+     * Adjacent elements are separated by the characters `", "` (comma and space).
+     * @return the string representation of this collection
+     */
+	public String toString() {
+		
+		StringBuilder string = new StringBuilder();
 		
 		if (top == null) {
-			System.err.print("Top is null");
-			System.exit(0);
-		}
-		else {
+			return ("Empty Stack");
+		} else {
 			Node temp = top;
 			while (temp != null) {
-
-				System.out.printf("%d->", temp.data);
-
+				string.append(temp.data + "\n");
 				temp = temp.link;
 			}
 		}
+		return string.toString();
 	}
 
 
