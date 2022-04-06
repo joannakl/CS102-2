@@ -166,15 +166,43 @@ public class Simulation {
         System.out.println(maze);
         //after every step wait 200 milliseconds
         try {
-            Thread.sleep(200);
+        	Thread.sleep(200);
         }
         catch(InterruptedException e) {}
-
-        //TO DO: implement the rest of this method
-        //TO DO: remove or update the return statement below so it correctly
-        //       reflects the desired return value
-
-        return false;
+        
+        //Sets square as visited at start of every program call
+        maze.setSquareToVisited(current);
+        
+        //Every neighbor of current square
+        ArrayList<Location> neighbors = maze.getNeighbors(current);
+        ArrayList<Location> unfinishedVisited = null;
+        
+        int neighborAmt = neighbors.size();
+        for(int i = 0; i < neighborAmt; i++) {
+        	//currSquare is square currently being checked
+        	SquareType currSquare = maze.getSquareType(neighbors.get(i));
+        	if (currSquare.isWayOut()  ) {
+        		return true;
+        	// ok so i'm stuck here, my roadblock is figuring out how to store the squares to backtrack to once a wall is hit
+        	// since we can't modify stuff outside of the actual recurisve method
+        	} else if (currSquare.isVisited()) {
+        		//for(int j = 0; j < maze.getNeighbors(neighbors.get(i)).size(); j++) {}
+        		continue;
+        	} else {
+        		 return(searchForWayOut(maze, neighbors.get(i)));
+        	} 
+        }
+        
+  
+       /*This is the cheating code, if I can't figure it out i'll just put this in, brute forces a solution by teleportign to unvisited squares
+        Location newPos = null;
+        do {
+        	newPos = maze.generateStartPosition();
+        	return(searchForWayOut(maze, newPos));
+        } while (!maze.getSquareType(newPos).isVisited()); */
+        
+        return true; //here to suppress error msg
+  
     }
 
     /**
@@ -263,5 +291,6 @@ public class Simulation {
             System.out.println(" ");
         }
     }
+
 
 }

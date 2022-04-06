@@ -1,28 +1,22 @@
 
-public class Foo {
-	int x;
-	int y;
-	
-	public Foo(int x, int y) {
-		this.x = x;
-		this.y = y;
-		
+public class foo {
+	static void foo ( int length ) {
+		foo (length, "");
+		}
+	static void foo ( int length, String seq ) {
+		if (seq.length() == length ) {
+		System.out.printf("%s \n", seq );
+		return;
+		}
+		String seq0 = seq + "O";
+		foo( length, seq0);
+		if (seq.length() != 0 ) {
+			String seq1 = seq + "1";
+			foo( length, seq1);
+		}
 	}
-	
-	public boolean equals(Object obj) {
-		if(obj == null) return false;
-		if(this == obj) return true;
-		if(!(obj instanceof Foo)) return false;
-		Foo other = (Foo) obj;
-		if(this.x == other.x && this.y == other.y)
-			return true;
-		return false;
-	}
-	
 	public static void main(String[] args) {
-		Foo f1 = new Foo(5,10);
-		Foo f2 = new Foo(5,10);
-		
-		System.out.println(f1.equals( f2 ));
+		foo(4);
 	}
+
 }
