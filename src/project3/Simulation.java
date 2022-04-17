@@ -224,8 +224,10 @@ public class Simulation {
 				continue;
 			}
 		}
-
-
+		//if there are no neighbors and nowhere to backtrack to, it's unsolvable
+		if (unfinishedVisited.size() == 0 && neighborAmt == 0) {
+			return false;
+		}
 		return( searchForWayOut( maze, neighbors.get( 0 ), unfinishedVisited ) );
 	}
 
